@@ -19,4 +19,15 @@ class ItemController extends Controller
 
         return response()->json($items);
     }
+
+    public function detail($id)
+    {
+        $item = Item::with('categories')->findOrFail($id);
+
+        if (!empty($item->foto)) {
+            $item->foto = asset('api/image/' . $item->foto);
+        }
+
+        return response()->json($item);
+    }
 }

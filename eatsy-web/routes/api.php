@@ -6,6 +6,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ReservationController;
 
 Route::get('/items', [ItemController::class, 'index']);
+Route::get('/items/{id}', [ItemController::class, 'detail']);
 
 Route::get('/tables/{id}/reservations/register', [ReservationController::class, 'registration']);
 Route::post('/tables/{id}/reservations', [ReservationController::class, 'login']);

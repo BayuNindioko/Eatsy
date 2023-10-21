@@ -1,0 +1,57 @@
+/* Top Text and Image */
+.row .col h2 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 12px;
+}
+
+.row {
+    padding: 16px;
+}
+
+.container .row .col img {
+    width: 328px;
+    height: 186px;
+    object-fit: cover;
+    border-radius: 24px;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    -ms-border-radius: 24px;
+    -o-border-radius: 24px;
+}
+
+/* Column 2 for Detail */
+.row .col h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.row .col p {
+    font-size: 16px;
+}
+
+/* Column 3 for Price and Quantity */
+.row .col #price {
+    padding-top: 4px;
+}
+
+/* Column 4 for Text Area and Add to Cart */
+.no-resize {
+    resize: none;
+}
+
+.btn-success {
+    background-color: #55853a;
+    color: white;
+    margin-top: 16px;
+    font-weight: 500;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+}

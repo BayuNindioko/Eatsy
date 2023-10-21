@@ -1,0 +1,37 @@
+h1 {
+    text-align: center;
+}
+
+.pin-code {
+    padding-bottom: 16px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.pin-code input {
+    border: 1px solid #55853A;
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    font-size: 36px;
+    background-color: #fff;
+    margin-right: 16px;
+    margin-left: 16px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.pin-code input:focus {
+    border: 1px solid #157347;
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

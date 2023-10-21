@@ -1,0 +1,82 @@
+body {
+    justify-content: center;
+    align-items: center;
+    margin-top: 96px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+}
+
+/* Welcome, Logo and Text */
+.container .row .col img {
+    height: 100px;
+    width: auto;
+}
+
+.row .col h1 {
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 36px;
+}
+
+.bard-order-container {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100px;
+}
+
+.bard-order-container h2 {
+    font-weight: bold;
+}
+
+/* Pincode Section */
+.col h3 {
+    margin-top: 36px;
+    font-size: 14px;
+}
+
+.btn-success {
+    background-color: #55853a;
+    color: white;
+    margin-top: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    margin-top: -2px;
+    height: 40px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+span {
+    padding-top: 16px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+a.create-pin-link {
+    color: #55853a;
+    text-decoration: none;
+}
+
+/* Register Page */
+.form-label {
+    margin-top: 36px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-control {
+    border: 1px solid #55853a;
+}

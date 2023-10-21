@@ -1,0 +1,191 @@
+.row {
+    padding: 16px;
+}
+
+#topSection {
+    background: linear-gradient(to bottom, #55853a 90%, #ffffff 90%);
+}
+
+.circle {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    border: 2px solid #eb7d23;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #eb7d23;
+    background-color: #fbf7f1;
+}
+
+#welcome {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 427px) {
+    #welcome {
+        font-size: 26px;
+        font-weight: bold;
+        color: #ffffff;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
+#name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+
+#noTable {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#promotions {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.carousel-item img {
+    border-radius: 24px;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    -ms-border-radius: 24px;
+    -o-border-radius: 24px;
+}
+
+.carousel-inner img {
+    object-fit: cover;
+    width: 320px;
+    height: 168px;
+}
+
+/* Card View */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card {
+    flex: 0 0 calc(50% - 10px);
+    background-color: #fbf7f1;
+    border: none;
+    border-color: transparent;
+    border-radius: 16px;
+    overflow: visible !important;
+    margin-bottom: 76px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 132px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .card-img-top {
+        height: 300px;
+        width: 100%;
+    }
+}
+
+.card-body {
+    position: relative;
+    z-index: 1;
+}
+
+.card-subtitle {
+    max-height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.card .btn {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.card-img-top {
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+.card-text {
+    font-weight: 600;
+}
+
+.btn-success {
+    background-color: #55853a;
+    color: white;
+    margin-top: 16px;
+    font-weight: 500;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+}
+
+/* Floating Button */
+.float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #fbf7f1;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    z-index: 10;
+}
+
+.my-float {
+    margin-top: 22px;
+    color: #55853a;
+    transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+}
+
+.badge {
+    font-size: 6px;
+    padding: 2px 4px;
+}

@@ -1,0 +1,53 @@
+nav.navbar {
+    padding-left: 16px;
+    padding-right: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+
+.navbar-toggler-icon {
+    color: #323232;
+}
+
+.navbar-brand img {
+    width: 40px;
+    height: auto;
+}
+
+#resto {
+    margin-left: -24px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Custom Side Menu */
+.offcanvas {
+    background-color: #fbf7f1;
+}
+
+.offcanvas-title {
+    font-weight: bold;
+}
+
+.fas {
+    padding-right: 16px;
+    margin-left: 16px;
+}
+
+.navbar-nav .nav-item .nav-link.active:hover {
+    background-color: #eb7d23;
+    color: #fff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}

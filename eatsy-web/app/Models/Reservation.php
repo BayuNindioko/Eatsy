@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Table extends Model
+class Reservation extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'number', 'status'
+        'table_id', 'name', 'status'
     ];
 
-    public function reservation()
+    public function table()
     {
-        return $this->hasMany(Reservation::class);
+        return $this->belongsTo(Table::class);
     }
 }

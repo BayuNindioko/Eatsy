@@ -9,8 +9,12 @@ body {
 
 /* Welcome, Logo and Text */
 .container .row .col img {
-    height: 100px;
+    height: 200px;
     width: auto;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .row .col h1 {
@@ -39,8 +43,8 @@ body {
     font-size: 14px;
 }
 
-.btn-success {
-    background-color: #55853a;
+.btn-secondary {
+    background-color: #3E4B51;
     color: white;
     margin-top: 16px;
     font-weight: 500;
@@ -78,5 +82,5 @@ a.create-pin-link {
 }
 
 .form-control {
-    border: 1px solid #55853a;
+    border: 1px solid #3E4B51;
 }

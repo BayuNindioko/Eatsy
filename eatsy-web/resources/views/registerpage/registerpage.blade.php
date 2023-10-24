@@ -21,15 +21,7 @@
             </div>
             <div class="w-100"></div>
             <div class="col">
-                <div class="text-end">
-                    <img src="../assets/img/logo.svg" alt="Logo">
-                </div>
-            </div>
-            <div class="col">
-                <div class="bard-order-container">
-                    <h2 class="bard-text">La</h2>
-                    <h2 class="order-text">Maison</h2>
-                </div>
+                <img src="../assets/img/logo.png" alt="Logo">
             </div>
             <div class="w-100"></div>
             <div class="col">
@@ -42,7 +34,7 @@
                     </div>
                     <div class="w-100"></div>
                     <div class="col text-center">
-                        <button type="submit" id=addButton class="btn btn-success">Masuk</button>
+                        <button type="submit" id=addButton class="btn btn-secondary">Masuk</button>
                     </div>
                 </form>
             </div>

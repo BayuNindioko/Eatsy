@@ -14,7 +14,7 @@ class ReservationController extends Controller
         return response()->json($table);
     }
 
-    public function login(Request $request, $id)
+    public function generate(Request $request, $id)
     {
         $request['table_id'] = $id;
         $request['status'] = "Process";
@@ -30,13 +30,10 @@ class ReservationController extends Controller
         return $reservation;
     }
 
-    public function check_login(Request $request, $id)
+    public function check_login($id)
     {
         $reservation = Reservation::findOrFail($id);
-        if ($reservation['name'] == $request['name'] && $reservation['pin'] == $request['pin']) {
-            return response()->json($reservation);
-        } else {
-            return response()->json(['error' => 'Nama atau PIN salah'], 401);
-        }
+
+        return response()->json($reservation);
     }
 }

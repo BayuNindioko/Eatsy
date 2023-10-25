@@ -38,7 +38,11 @@ class AuthController extends Controller
 
         session(['table_id' => $id]);
 
-        return view('welcomepage.auth', ['data' => $data]);
+        if ($response->successful()) {
+            return redirect()->to('homepage/' . $id)->with(['data' => $data], ['message' => 'Login successful!']);
+        } else {
+            return back()->withInput()->with('error', 'Login failed. Please try again.');
+        }
     }
 
     public function login_request($id, Request $request)

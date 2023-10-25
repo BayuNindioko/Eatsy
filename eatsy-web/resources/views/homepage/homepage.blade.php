@@ -103,8 +103,8 @@
                             style="display: inline;">
                             @csrf
                             <input type="hidden" name="id" value="{{ $item['id'] }}">
-                            <input type="hidden" name="table_id" value="{{ $dataTable['table_id'] }}">
-                            <button type="submit" class="btn btn-success">Tambah</button>
+                            <input type="hidden" name="table_id" value="{{ $dataTable['id'] }}">
+                            <button type="submit" class="btn btn-secondary">Tambah</button>
                         </form>
                     </div>
                 </div>
@@ -133,8 +133,8 @@
                             style="display: inline;">
                             @csrf
                             <input type="hidden" name="id" value="{{ $item['id'] }}">
-                            <input type="hidden" name="table_id" value="{{ $dataTable['table_id'] }}">
-                            <button type="submit" class="btn btn-success">Tambah</button>
+                            <input type="hidden" name="table_id" value="{{ $dataTable['id'] }}">
+                            <button type="submit" class="btn btn-secondary">Tambah</button>
                         </form>
                     </div>
                 </div>

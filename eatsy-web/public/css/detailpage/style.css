@@ -40,8 +40,8 @@
     resize: none;
 }
 
-.btn-success {
-    background-color: #55853a;
+.btn-secondary {
+    background-color: #3E4B51;
     color: white;
     margin-top: 16px;
     font-weight: 500;

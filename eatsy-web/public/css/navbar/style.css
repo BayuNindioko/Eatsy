@@ -5,6 +5,14 @@ nav.navbar {
     align-items: center;
 }
 
+.navbar-brand span {
+    color: #3E4B51;
+}
+
+#offcanvasNavbarLabel {
+    color: #3E4B51;
+}
+
 .navbar-toggler {
     border: none;
     padding: 0;
@@ -30,7 +38,7 @@ nav.navbar {
 
 /* Custom Side Menu */
 .offcanvas {
-    background-color: #fbf7f1;
+    background-color: #FFFFFF;
 }
 
 .offcanvas-title {
@@ -43,7 +51,7 @@ nav.navbar {
 }
 
 .navbar-nav .nav-item .nav-link.active:hover {
-    background-color: #eb7d23;
+    background-color: #3E4B51;
     color: #fff;
     border-radius: 8px;
     -webkit-border-radius: 8px;

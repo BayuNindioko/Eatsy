@@ -67,10 +67,10 @@
             <div class="col">
                 <form method="POST" action="{{ route('cart/tambah/', $data['id']) }}">
                     @csrf
-                    <input name="table_id" hidden type="text" value="{{ $dataTable['table_id'] }}">
+                    <input name="table_id" hidden type="text" value="{{ $dataTable['id'] }}">
                     <input id="qtyHidden" name="qty" hidden type="text" value="">
                     <input id="catatanHidden" name="catatan" hidden type="text" value="">
-                    <button id="addToCartButton" class="btn btn-success">Tambahkan ke Keranjang</button>
+                    <button id="addToCartButton" class="btn btn-secondary">Tambahkan ke Keranjang</button>
                 </form>
             </div>
         </div>

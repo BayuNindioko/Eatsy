@@ -3,22 +3,22 @@
 }
 
 #topSection {
-    background: linear-gradient(to bottom, #55853a 90%, #ffffff 90%);
+    background: linear-gradient(to bottom, #3E4B51 90%, #ffffff 90%);
 }
 
 .circle {
     width: 76px;
     height: 76px;
     border-radius: 50%;
-    border: 2px solid #eb7d23;
+    border: 2px solid #CD9A49;
     background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     font-weight: bold;
-    color: #eb7d23;
-    background-color: #fbf7f1;
+    color: #CD9A49;
+    background-color: #ffffff;
 }
 
 #welcome {
@@ -82,7 +82,7 @@
 
 .card {
     flex: 0 0 calc(50% - 10px);
-    background-color: #fbf7f1;
+    background-color: #ecedee;
     border: none;
     border-color: transparent;
     border-radius: 16px;
@@ -145,8 +145,8 @@
     font-weight: 600;
 }
 
-.btn-success {
-    background-color: #55853a;
+.btn-secondary {
+    background-color: #3E4B51;
     color: white;
     margin-top: 16px;
     font-weight: 500;
@@ -168,7 +168,7 @@
     height: 60px;
     bottom: 40px;
     right: 40px;
-    background-color: #fbf7f1;
+    background-color: #ecedee;
     color: #fff;
     border-radius: 50px;
     text-align: center;
@@ -177,7 +177,7 @@
 
 .my-float {
     margin-top: 22px;
-    color: #55853a;
+    color: #3E4B51;
     transform: scale(1.5);
     -webkit-transform: scale(1.5);
     -moz-transform: scale(1.5);

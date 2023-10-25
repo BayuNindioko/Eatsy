@@ -48,21 +48,21 @@
 }
 
 #plusminus-container .minus {
-    background-color: #55853a;
+    background-color: #3E4B51;
     scale: 0.8;
 }
 
 #plusminus-container .plus {
-    background-color: #55853a;
+    background-color: #3E4B51;
     scale: 0.8;
 }
 
 .minus:hover {
-    background-color: #157347 !important;
+    background-color: #15191a !important;
 }
 
 .plus:hover {
-    background-color: #157347 !important;
+    background-color: #15191a !important;
 }
 
 /*Prevent text selection*/

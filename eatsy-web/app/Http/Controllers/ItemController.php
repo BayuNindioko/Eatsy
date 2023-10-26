@@ -13,7 +13,7 @@ class ItemController extends Controller
 
         foreach ($items as $item) {
             if (!empty($item->foto)) {
-                $item->foto = asset('api/image/' . $item->foto);
+                $item->foto = asset('../storage/app/image/' . $item->foto);
             }
         }
 
@@ -25,7 +25,7 @@ class ItemController extends Controller
         $item = Item::with('categories')->findOrFail($id);
 
         if (!empty($item->foto)) {
-            $item->foto = asset('api/image/' . $item->foto);
+            $item->foto = asset('../storage/app/image/' . $item->foto);
         }
 
         return response()->json($item);

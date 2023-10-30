@@ -16,7 +16,10 @@ class ReservationController extends Controller
 
     public function generate(Request $request, $id)
     {
+        $generate_pin = strval(random_int(1000, 9999));
+
         $request['table_id'] = $id;
+        $request['pin'] = $generate_pin;
         $request['status'] = "Process";
 
         $table = Table::find($id);
@@ -30,10 +33,30 @@ class ReservationController extends Controller
         return $reservation;
     }
 
-    public function check_login($id)
+    public function check_login($id, Request $request)
     {
         $reservation = Reservation::findOrFail($id);
+        if ($reservation['name'] == $request['name'] && $reservation['pin'] == $request['pin']) {
+            return response()->json($reservation);
+        } else {
+            return response()->json(['error' => 'Nama atau PIN salah'], 401);
+        }
+    }
 
-        return response()->json($reservation);
+    public function checkout($id, Request $request)
+    {
+        $id_table = $request->table_id;
+
+        $table = Table::find($id_table);
+        $table->status = 'Kosong';
+        $table->save();
+
+        $reservation = Reservation::find($id);
+        $reservation->status = 'Finish';
+        $reservation->save();
+
+        $table = Table::find($id_table)->reservation()->with('order_items')->with('table')->orderBy('created_at', 'desc')->where('status', 'Finish')->first();
+
+        return response()->json($table);
     }
 }

@@ -10,11 +10,16 @@ class Reservation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'table_id', 'name', 'status'
+        'table_id', 'name', 'pin', 'status'
     ];
 
     public function table()
     {
         return $this->belongsTo(Table::class);
+    }
+
+    public function order_items()
+    {
+        return $this->hasManyThrough(OrderItem::class, Order::class);
     }
 }

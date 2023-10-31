@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ReservationController;
@@ -26,7 +27,7 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/tables/{id}/reservations/register', [ReservationController::class, 'registration']);
 Route::post('/tables/{id}/reservations', [ReservationController::class, 'generate']);
 Route::get('/tables/{id}/reservations', [ReservationController::class, 'detail']);
-Route::get('/tables/reservations/{id}/login', [ReservationController::class, 'check_login']);
+Route::post('/tables/reservations/{id}/login', [ReservationController::class, 'check_login']);
 Route::post('/tables/reservations/{id}', [ReservationController::class, 'checkout']);
 
 //TABLES
@@ -37,3 +38,7 @@ Route::delete('/tables/{id}', [TableController::class, 'delete']);
 Route::get('/tables/{id}/detail', [TableController::class, 'detail']);
 Route::get('/tables/{id}/', [TableController::class, 'history_by_table']);
 Route::get('/tables/{id}/items', [TableController::class, 'table_active']);
+
+//ORDERS
+Route::patch('/order_items/{id}', [OrderController::class, 'update']);
+Route::post('/order/store', [OrderController::class, 'store']);

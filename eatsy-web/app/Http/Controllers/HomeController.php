@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class HomeController extends Controller
 {
     public function index($id)
     {
-        $dataRes = session('data');
-
         $tableIdInSession = Session::get('table_id');
         if (!$tableIdInSession || $tableIdInSession !== $id) {
             return redirect()->route('register/', ['id' => $id])->with('error', 'You are not authorized to access this table.');
@@ -23,7 +23,7 @@ class HomeController extends Controller
         $responseCategory = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/categories');
         $dataCategory = $responseCategory->json();
 
-        $responseTable = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/tables/reservations/' . $dataRes['id'] . '/login');
+        $responseTable = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/tables/' . $id . '/reservations');
         $dataTable = $responseTable->json();
 
         return view('homepage.homepage', [
@@ -40,7 +40,7 @@ class HomeController extends Controller
 
         $table_id = $request->input('table_id');
 
-        $responseTable = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/tables/reservations/' . $id . '/login');
+        $responseTable = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/tables/' . $table_id . '/reservations');
         $dataTable = $responseTable->json();
 
         if (!$item) {

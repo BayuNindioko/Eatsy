@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h2>Keranjangku</h2>
+                <h2>Pesanan yang Diproses</h2>
             </div>
         </div>
 
@@ -19,7 +19,7 @@
             <div class="circle">
                 <img src="{{ asset('assets/img/emptypage/emptycart.svg') }}" alt="emptyicon">
             </div>
-            <p>Keranjang Belanja Anda Masih Kosong</p>
+            <p>Anda Belum Memesan Apapun</p>
             <a id=addButton href="{{ route('homepage/',$dataTable['table_id']) }}" class="btn btn-warning">Pesan Sekarang</a>
         </div>
     @endsection

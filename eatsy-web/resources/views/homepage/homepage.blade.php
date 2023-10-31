@@ -103,7 +103,7 @@
                             style="display: inline;">
                             @csrf
                             <input type="hidden" name="id" value="{{ $item['id'] }}">
-                            <input type="hidden" name="table_id" value="{{ $dataTable['id'] }}">
+                            <input type="hidden" name="table_id" value="{{ $dataTable['table_id'] }}">
                             <button type="submit" class="btn btn-secondary">Tambah</button>
                         </form>
                     </div>

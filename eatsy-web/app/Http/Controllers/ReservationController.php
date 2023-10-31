@@ -14,6 +14,29 @@ class ReservationController extends Controller
         return response()->json($table);
     }
 
+    public function detail($id)
+    {
+        $table = Table::find($id)->reservation()->with('order_items')->with('table')->orderBy('created_at', 'desc')->where('status', 'Process')->first();
+        if ($table == null) {
+            $table = Table::find($id);
+            $data = [
+                'id' => 0,
+                'table_id' => $table['id'],
+                'name' => '',
+                'pin' => '',
+                'status' => 'Finish',
+                'created_at' => '',
+                'updated_at' => '',
+                'items' => [],
+                'table' => $table
+            ];
+
+            $table = (object)$data;
+        }
+
+        return response()->json($table);
+    }
+
     public function generate(Request $request, $id)
     {
         $generate_pin = strval(random_int(1000, 9999));

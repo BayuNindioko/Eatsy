@@ -1,0 +1,113 @@
+/* Top Text */
+.row .col h2 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 12px;
+}
+
+.row {
+    padding: 16px;
+}
+
+/* Card */
+.card {
+    flex-direction: row;
+    background-color: #fbf7f1;
+    border: 5px;
+    margin-bottom: 16px;
+}
+
+.card h5 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-body .text-section .row .col h5 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: -16px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#plusminus-container {
+    position: relative;
+    top: -18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    scale: 0.8;
+}
+
+#trash-icon {
+    position: relative;
+    left: -12px;
+    transform: scale(1.8);
+    -webkit-transform: scale(1.8);
+    -moz-transform: scale(1.8);
+    -ms-transform: scale(1.8);
+    -o-transform: scale(1.8);
+}
+
+.card.dark {
+    color: #000;
+}
+
+.card img {
+    object-fit: cover;
+    max-width: 130px;
+    height: 130px;
+    margin: auto;
+    padding: 0.5em;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-section {
+    max-width: 90%;
+}
+
+.cta-section {
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 475px) {
+    .card {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .card img {
+        object-fit: cover;
+        max-width: 80px;
+        height: 80px;
+        margin: auto;
+        padding: 0.5em;
+        border-radius: 16px;
+        -webkit-border-radius: 16px;
+        -moz-border-radius: 16px;
+        -ms-border-radius: 16px;
+        -o-border-radius: 16px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .col {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}

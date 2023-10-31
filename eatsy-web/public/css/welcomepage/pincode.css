@@ -10,7 +10,7 @@ h1 {
 }
 
 .pin-code input {
-    border: 1px solid #55853A;
+    border: 1px solid #3E4B51;
     text-align: center;
     width: 48px;
     height: 48px;
@@ -26,7 +26,7 @@ h1 {
 }
 
 .pin-code input:focus {
-    border: 1px solid #157347;
+    border: 1px solid #3E4B51;
     outline: none;
 }
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BARD Order</title>
+    <title>LA Maison</title>
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -24,7 +24,7 @@
             </div>
             <div class="w-100"></div>
             <div class="col text-center">
-                    <a href="{{ route('homepage/', $data['table_id']) }}" id=addButton class="btn btn-success">Masuk</a>
+                    <a href="{{ route('homepage/', $data['table_id']) }}" id=addButton class="btn btn-secondary">Masuk</a>
             </div>
         </div>
     </div>

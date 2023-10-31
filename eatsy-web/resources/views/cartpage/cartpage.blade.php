@@ -32,6 +32,7 @@
                                     <div class="text-section">
                                         <h5 class="card-title">{{ $item['name'] }}</h5>
                                         <p class="card-text">{{ $item['catatan'] }}</p>
+                                        <span class="price">Jumlah Pesanan: {{ $item['qty'] }}</span>
                                         <div class="row">
                                             <div class="col">
                                                 <h5 class="harga">@formatPrice($item['price'])</h5>
@@ -49,12 +50,6 @@
                                                         data-item-id="{{ $item['id'] }}"></i>
                                                 </button>
                                             </form>
-                                        </div>
-                                        <div id="plusminus-container" class="qty mt-5 mt-auto">
-                                            <span class="minus">-</span>
-                                            <input type="number" class="count" name="qty"
-                                                data-item-id="{{ $item['id'] }}" value="{{ $item['qty'] }}">
-                                            <span class="plus">+</span>
                                         </div>
                                     </div>
                                 </div>
@@ -76,7 +71,7 @@
                         <h5>Total @formatPrice($total)</h5>
                     </div>
                     <div class="col">
-                        <a id=addButton type="button" class="btn btn-success" data-bs-toggle="modal"
+                        <a id=addButton type="button" class="btn btn-secondary" data-bs-toggle="modal"
                             data-bs-target="#exampleConfirm">Pesan</a>
 
                         {{-- Modal Confirm --}}
@@ -94,7 +89,7 @@
                                         <div class="image-caption22">Apakah Kamu Ingin Memesannya?</div>
                                         <form action="{{ route('submit-order') }}" method="post">
                                             @csrf
-                                            <button id="addButton" type="submit" class="btn btn-success" data-bs-toggle="modal"
+                                            <button id="addButton" type="submit" class="btn btn-secondary" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal">Ya, Pesan Sekarang</button>
                                         </form>
 

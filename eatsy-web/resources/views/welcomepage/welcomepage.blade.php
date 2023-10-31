@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BARD Order</title>
+    <title>LA Maison</title>
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -18,18 +18,14 @@
         <div class="row">
             <div class="col">
                 <h1>Selamat Datang!</h1>
+                <h1>di LA Maison</h1>
             </div>
             <div class="w-100"></div>
             <div class="col">
                 <div class="text-end">
-                    <img src="../assets/img/logo.svg" alt="Logo">
+                    <img src="../assets/img/Maison.png" alt="Logo">
                 </div>
             </div>
-            <div class="col">
-                <div class="bard-order-container">
-                    <h2 class="bard-text">BARD</h2>
-                    <h2 class="order-text">Order</h2>
-                </div>
             </div>
             <div class="w-100"></div>
             <div class="col">
@@ -51,7 +47,7 @@
                 </div>
                 <div class="w-100"></div>
                 <div class="col text-center">
-                    <button type="submit" id=addButton  class="btn btn-success">Masuk</button>
+                    <button type="submit" id=addButton  class="btn btn-secondary">Masuk</button>
                 </div>
             </form>
         </div>

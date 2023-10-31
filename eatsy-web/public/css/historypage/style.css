@@ -12,7 +12,7 @@
 /* Card */
 .card {
     flex-direction: row;
-    background-color: #fbf7f1;
+    background-color: #ecedee;
     border: 5px;
     margin-bottom: 16px;
 }
@@ -73,11 +73,12 @@
 }
 
 .text-section {
-    max-width: 90%;
+    width: 175px;
+    text-align: justify;
 }
 
 .cta-section {
-    max-width: 40%;
+    width: 13px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;

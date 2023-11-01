@@ -1,9 +1,9 @@
 package com.example.eatsy.login
 
-
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.eatsy.MainActivity
 import com.example.eatsy.R
 import com.example.eatsy.databinding.ActivityLoginBinding
-
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -26,10 +25,7 @@ class LoginActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
         binding.loginButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            Toast.makeText(this, "Selamat Datang!", Toast.LENGTH_SHORT).show()
-            startActivity(intent)
-            finish()
+            signIn()
         }
 
         viewModel.showProgressBar.observe(this) { show ->

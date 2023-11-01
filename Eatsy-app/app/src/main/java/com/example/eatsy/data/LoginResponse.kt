@@ -5,7 +5,6 @@ data class LoginResponse(
     val message: String,
     val data: LoginData
 )
-
 data class LoginData(
     val access_token: String
 )

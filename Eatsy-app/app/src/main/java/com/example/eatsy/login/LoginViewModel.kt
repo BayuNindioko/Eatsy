@@ -3,9 +3,11 @@ package com.example.eatsy.login
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.eatsy.R
 import com.example.eatsy.api.ApiConfig
 import com.example.eatsy.data.LoginResponse
 import retrofit2.Call
@@ -31,13 +33,11 @@ class LoginViewModel : ViewModel() {
             ) {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
-
                     if (loginResponse?.status == "success" && loginResponse.data != null) {
                         val token = loginResponse.data.access_token
                         Log.d("tokenn", "Token: $token")
                         _loginResult.value = true
                         saveTokenToSharedPreferences(token, context)
-
 
                     } else {
                         _loginResult.value = false
@@ -50,9 +50,9 @@ class LoginViewModel : ViewModel() {
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-
                 _loginResult.value = false
                 _showProgressBar.value = false
+                Log.e("LoginViewModel", "Kesalahan permintaan login: ${t.message}")
             }
         })
 

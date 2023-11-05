@@ -95,6 +95,16 @@ class MainActivity : AppCompatActivity() {
                         }
                     })
                 }
+//                val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+//                val editor = sharedPreferences.edit()
+//                editor.clear()
+//                editor.apply()
+//
+//
+//                Toast.makeText(this, "Logout Successfully!", Toast.LENGTH_SHORT).show()
+//                startActivity(Intent(this, LoginActivity::class.java))
+//                finish()
+
             }
         }
         return super.onOptionsItemSelected(item)

@@ -1,38 +1,56 @@
 package com.example.eatsy.ui.dashboard
 
 import android.os.Bundle
+import android.os.Handler
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.eatsy.databinding.FragmentDashboardBinding
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.eatsy.databinding.FragmentAntrianBinding
 
 class DashboardFragment : Fragment() {
-
-    private var _binding: FragmentDashboardBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentAntrianBinding? = null
+    private lateinit var tableAdapter: TableAdapter
+    private lateinit var queueViewModel: QueueViewModel
     private val binding get() = _binding!!
 
+    private val fetchHandler = Handler()
+    private val fetchRunnable = object : Runnable {
+        override fun run() {
+            queueViewModel.fetchTableData()
+            fetchHandler.postDelayed(this, 10000)
+        }
+    }
+
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        _binding = FragmentAntrianBinding.inflate(inflater, container, false)
+        val view = binding.root
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        tableAdapter = TableAdapter(emptyList())
+        binding.rvTable.layoutManager = GridLayoutManager(requireContext(), 2)
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        queueViewModel = ViewModelProvider(this).get(QueueViewModel::class.java)
+        queueViewModel.getTableData().observe(viewLifecycleOwner) { tableList ->
+            if (tableList.isNotEmpty()) {
+                binding.rvTable.visibility = View.VISIBLE
+                binding.emptyView.visibility = View.GONE
+
+                tableAdapter = TableAdapter(tableList)
+                binding.rvTable.adapter = tableAdapter
+            } else {
+                binding.rvTable.visibility = View.GONE
+                binding.emptyView.visibility = View.VISIBLE
+            }
         }
-        return root
+        queueViewModel.fetchTableData()
+        fetchHandler.postDelayed(fetchRunnable, 20000)
+
+        return view
     }
 
     override fun onDestroyView() {

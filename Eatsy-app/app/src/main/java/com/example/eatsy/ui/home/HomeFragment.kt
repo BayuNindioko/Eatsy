@@ -9,8 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.eatsy.databinding.FragmentReservassiBinding
-import com.example.eatsy.reservasi.ReservasiAdapter
-import com.example.myapplication.reservasi.ReservationViewModel
 
 class HomeFragment : Fragment() {
 

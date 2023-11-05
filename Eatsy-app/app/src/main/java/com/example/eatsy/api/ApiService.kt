@@ -5,6 +5,7 @@ import com.example.eatsy.data.CheckinResponse
 import com.example.eatsy.data.DetailReservationResponse
 import com.example.eatsy.data.LoginResponse
 import com.example.eatsy.data.LogoutResponse
+import com.example.eatsy.data.TableReservationResponse
 import com.example.eatsy.data.TableResponseItem
 import retrofit2.Call
 import retrofit2.http.*
@@ -47,4 +48,9 @@ interface ApiService {
         @Path("id") id: Int,
         @Field("table_id") table_id: Int,
     ): Call<DetailReservationResponse>
+
+    //pesanan
+    @GET("/api/reservations")
+    fun getTableReservation(
+    ): Call<List<TableReservationResponse>>
 }

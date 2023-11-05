@@ -1,4 +1,4 @@
-package com.example.eatsy.reservasi
+package com.example.eatsy.ui.home
 
 
 import android.bluetooth.BluetoothAdapter

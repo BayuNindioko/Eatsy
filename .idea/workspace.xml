@@ -9,10 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7359f34a-f6e9-4bd0-aa2b-627fa0994d6c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Eatsy-app/app/src/main/java/com/example/eatsy/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Eatsy-app/app/src/main/java/com/example/eatsy/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eatsy-app/app/src/main/java/com/example/eatsy/api/ApiConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Eatsy-app/app/src/main/java/com/example/eatsy/api/ApiConfig.kt" afterDir="false" />
-    </list>
+    <list default="true" id="7359f34a-f6e9-4bd0-aa2b-627fa0994d6c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

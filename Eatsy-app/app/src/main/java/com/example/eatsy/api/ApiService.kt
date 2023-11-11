@@ -5,8 +5,10 @@ import com.example.eatsy.data.CheckinResponse
 import com.example.eatsy.data.DetailReservationResponse
 import com.example.eatsy.data.LoginResponse
 import com.example.eatsy.data.LogoutResponse
+import com.example.eatsy.data.OrderResponse
 import com.example.eatsy.data.TableReservationResponse
 import com.example.eatsy.data.TableResponseItem
+import com.example.eatsy.data.UpdateResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -53,4 +55,17 @@ interface ApiService {
     @GET("/api/reservations")
     fun getTableReservation(
     ): Call<List<TableReservationResponse>>
+
+    //detail pesanan
+    @GET("/api/reservations/{id}/items")
+    fun getOrderByTable(
+        @Path("id") number: String
+    ): Call<OrderResponse>
+
+    @FormUrlEncoded
+    @PATCH("order_items/{id}/")
+    fun updateData(
+        @Path("id") id: Int,
+        @Field("quantity_delivered") QuantityDelivered:Int
+    ) : Call<UpdateResponse>
 }

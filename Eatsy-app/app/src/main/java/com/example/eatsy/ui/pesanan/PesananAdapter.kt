@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.myapplication.R
-import com.example.myapplication.data.OrderItem
-import com.example.myapplication.databinding.ItemPesananBinding
+import com.example.eatsy.R
+import com.example.eatsy.data.OrderItem
+import com.example.eatsy.databinding.ItemPesananBinding
+
 
 class PesananAdapter(
     private var itemsList: List<OrderItem?>,

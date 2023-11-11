@@ -1,5 +1,6 @@
 package com.example.eatsy.ui.dashboard
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eatsy.R
 import com.example.eatsy.data.TableReservationResponse
+import com.example.eatsy.ui.pesanan.PesananActivity
 
 class TableAdapter(private var tableList: List<TableReservationResponse?>) :
     RecyclerView.Adapter<TableAdapter.TableViewHolder>() {
@@ -32,7 +34,19 @@ class TableAdapter(private var tableList: List<TableReservationResponse?>) :
         private val nameTextView: TextView = itemView.findViewById(R.id.nama)
         init {
             itemView.setOnClickListener {
-                Toast.makeText(itemView.context, "Wakwawww", Toast.LENGTH_SHORT).show()
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val table = tableList[position]
+                    table?.let {
+                        val id = it.id
+                        val number_table = it.table.number
+
+                        val intent = Intent(itemView.context, PesananActivity::class.java)
+                        intent.putExtra("NUMBER_KEY", id.toString())
+                        intent.putExtra("ID_TABLE", number_table.toString())
+                        itemView.context.startActivity(intent)
+                    }
+                }
             }
         }
         fun bind(table: TableReservationResponse?) {

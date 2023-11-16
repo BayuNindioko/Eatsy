@@ -50,7 +50,7 @@ class ReservationController extends Controller
         foreach ($reservation->order_items as $orderItem) {
             $item = $orderItem->item;
             if (!empty($item->foto)) {
-                $item->foto = url('../storage/app/image/' . basename($item->foto));
+                $item->foto = url('../api/image/' . basename($item->foto));
             }
         }
 

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\CategoryController;
@@ -53,6 +54,12 @@ Route::get('/tables/{id}/items', [TableController::class, 'table_active']);
 Route::patch('/order_items/{id}', [OrderController::class, 'update']);
 Route::post('/order/store', [OrderController::class, 'store']);
 
+//USERS
+Route::get('/users', [UserController::class, 'index']);
+Route::post('/users', [UserController::class, 'store']);
+Route::get('/users/{id}', [UserController::class, 'detail']);
+Route::patch('/users/{id}', [UserController::class, 'update']);
+Route::delete('/users/{id}', [UserController::class, 'delete']);
 
 Route::get('image/{filename}', function ($filename) {
     $path = 'image/' . $filename;

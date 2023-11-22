@@ -74,7 +74,7 @@ class ItemAdminController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::delete('http://127.0.0.1/Eatsy/eatsy-web/public/api/tables/' . $id);
+            $response = Http::delete('http://127.0.0.1/Eatsy/eatsy-web/public/api/items/' . $id);
 
             if ($response->successful()) {
                 return redirect()->route('items')->with('success', 'Data meja berhasil diperbarui.');

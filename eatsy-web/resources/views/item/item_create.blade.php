@@ -19,12 +19,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Edit Item</h1>
+                    <h1>Tambah Item</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('items') }}">Item</a></li>
-                        <li class="breadcrumb-item active">Edit Item</li>
+                        <li class="breadcrumb-item active">Tambah Item</li>
                     </ol>
                 </div>
             </div><!-- /.container-fluid -->
@@ -129,7 +129,7 @@
             event.preventDefault();
 
             var form = $(this);
-            var url = 'http://192.168.1.109:8000/api/items';
+            var url = 'http://127.0.0.1/Eatsy/eatsy-web/public/api/items';
 
 
             var formData = new FormData(form[0]);

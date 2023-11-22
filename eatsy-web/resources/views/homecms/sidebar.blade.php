@@ -93,14 +93,14 @@
                             </a>
                         </li>
 
-                        <li class="nav-item menu">
+                        {{-- <li class="nav-item menu">
                             <a href="{{ route('tables') }}" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
                                     Tabel Meja
                                 </p>
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item menu">
                             <a href="{{ route('items') }}" class="nav-link">
@@ -111,14 +111,14 @@
                             </a>
                         </li>
 
-                        <li class="nav-item menu">
+                        {{-- <li class="nav-item menu">
                             <a href="{{ route('users') }}" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
                                     Tabel User
                                 </p>
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item menu">
                             <a href="{{ route('categories') }}" class="nav-link">

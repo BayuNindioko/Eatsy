@@ -90,7 +90,7 @@
     <div class="float-right d-none d-sm-block">
         <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2023 <a href="">BARD</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2023 <a href="">La Maison</a>.</strong> All rights reserved.
 </footer>
 
 <!-- Control Sidebar -->

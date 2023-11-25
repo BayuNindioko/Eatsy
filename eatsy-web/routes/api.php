@@ -61,6 +61,9 @@ Route::get('/users/{id}', [UserController::class, 'detail']);
 Route::patch('/users/{id}', [UserController::class, 'update']);
 Route::delete('/users/{id}', [UserController::class, 'delete']);
 
+//REPORTS
+Route::get('/order/report', [OrderController::class, 'getSalesReport']);
+
 Route::get('image/{filename}', function ($filename) {
     $path = 'image/' . $filename;
     if (Storage::exists($path)) {

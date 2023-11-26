@@ -13,10 +13,49 @@ class TableController extends Controller
         return response()->json($tables);
     }
 
+    public function detail($id)
+    {
+        $table = Table::findOrFail($id);
+        return response()->json($table);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $table = Table::findOrFail($id);
+
+        $table->update($request->all());
+
+        return response()->json($table);
+    }
+
+    public function delete($id)
+    {
+        $table = Table::findOrFail($id)->delete();
+
+        return response()->json($table);
+    }
+
+
     public function store(Request $request)
     {
         $request['status'] = 'Kosong';
         $table = Table::create($request->all());
+
+        return response()->json($table);
+    }
+
+    public function history_by_table($id)
+    {
+        $table = Table::find($id)->reservation()->with('order_items.item')->with('table')->get();
+
+        foreach ($table as $reservation) {
+            foreach ($reservation->order_items as $orderItem) {
+                $item = $orderItem->item;
+                if (!empty($item->foto)) {
+                    $item->foto = url('../storage/app/image/' . basename($item->foto));
+                }
+            }
+        }
 
         return response()->json($table);
     }
@@ -29,7 +68,7 @@ class TableController extends Controller
             foreach ($reservation->order_items as $orderItem) {
                 $item = $orderItem->item;
                 if (!empty($item->foto)) {
-                    $item->foto = url('api/image/' . basename($item->foto));
+                    $item->foto = url('../storage/app/image/' . basename($item->foto));
                 }
             }
         }

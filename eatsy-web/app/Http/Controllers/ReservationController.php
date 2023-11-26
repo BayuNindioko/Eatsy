@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
+    public function index()
+    {
+        $reservations = Reservation::where('status', 'Process')->with('table')->get();
+        return response()->json($reservations);
+    }
+
     public function registration($id)
     {
         $table = Table::findOrFail($id);
@@ -35,6 +41,20 @@ class ReservationController extends Controller
         }
 
         return response()->json($table);
+    }
+
+    public function detail_item_reservations($id)
+    {
+        $reservation = Reservation::with('order_items.item')->with('table')->find($id);
+
+        foreach ($reservation->order_items as $orderItem) {
+            $item = $orderItem->item;
+            if (!empty($item->foto)) {
+                $item->foto = url('../api/image/' . basename($item->foto));
+            }
+        }
+
+        return response()->json($reservation);
     }
 
     public function generate(Request $request, $id)

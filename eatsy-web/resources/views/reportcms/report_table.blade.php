@@ -54,18 +54,18 @@
                                                 <td>
                                                     <?php echo $no++; ?>
                                                 </td>
-                                                <td>bulanmek</td>
+                                                <td>{{ $data['month'] }}</td>
                                                 <td>{{ $report['name'] }}</td>
                                                 <td>{{ $report['total_quantity'] }}</td>
                                                 <td>{{ $report['total_price'] }}</td>
                                             </tr>
                                         @endforeach
                                         <td colspan="4">Total Pemasukan</td>
-                                        <td>100</td>
+                                        <td>{{ $data['totalIncome'] }}</td>
                                         </tr>
                                         <tr>
                                             <td colspan="4">Jumlah Terjual</td>
-                                            <td>100</td>
+                                            <td>{{ $data['totalItemsSold'] }}</td>
                                         </tr>
                                     </tbody>
                                     <tfoot>

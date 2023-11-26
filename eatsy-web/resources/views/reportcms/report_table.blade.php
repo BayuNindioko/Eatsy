@@ -60,6 +60,13 @@
                                                 <td>{{ $report['total_price'] }}</td>
                                             </tr>
                                         @endforeach
+                                        <td colspan="4">Total Pemasukan</td>
+                                        <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">Jumlah Terjual</td>
+                                            <td>100</td>
+                                        </tr>
                                     </tbody>
                                     <tfoot>
                                 </table>

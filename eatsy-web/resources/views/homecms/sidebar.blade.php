@@ -130,6 +130,15 @@
                         </li>
 
                         <li class="nav-item menu">
+                            <a href="{{ route('reports') }}" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Laporan
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item menu">
                             <a href="{{ route('logout') }}" class="nav-link">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>
                                 <p>

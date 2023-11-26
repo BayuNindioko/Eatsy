@@ -8,6 +8,7 @@ use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemAdminController;
+use App\Http\Controllers\ReportAdminController;
 use App\Http\Controllers\TableAdminController;
 use App\Http\Controllers\UserAdminController;
 use Illuminate\Support\Facades\Auth;
@@ -76,3 +77,5 @@ Route::post('/cms/users/create_process', [UserAdminController::class, 'create_pr
 Route::get('/cms/users/{id}', [UserAdminController::class, 'detail'])->name('users/');
 Route::post('/cms/users_process/{id}', [UserAdminController::class, 'user_process'])->name('users_process/');
 Route::get('/cms/users/{id}/delete', [UserAdminController::class, 'delete'])->name('users/delete/');
+
+Route::get('/cms/reports', [ReportAdminController::class, 'index'])->name('reports');

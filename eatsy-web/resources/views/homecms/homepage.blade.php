@@ -71,7 +71,7 @@
                             <!-- /.info-box-content -->
                         </div>
                         <!-- /.info-box -->
-                        <div class="info-box mb-3 bg-info">
+                        <div class="info-box mb-3 bg-secondary">
                             <span class="info-box-icon"><i class="far fa-file"></i></span>
 
                             <div class="info-box-content">

@@ -27,11 +27,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="row justify-content-md-end pr-4 pt-4">
-<<<<<<< HEAD
                                 <a href="{{ route('exportpdf') }}">
-=======
-                                <a href="{{ route('create_table') }}">
->>>>>>> 1f00d300c237900cb3a92d828f935b97a6a134ee
+
                                     <button type="button" class="btn btn-primary btn-block"><i class="fa fa-plus"></i>
                                         Download PDF</button>
                                 </a>

@@ -79,7 +79,4 @@ Route::post('/cms/users_process/{id}', [UserAdminController::class, 'user_proces
 Route::get('/cms/users/{id}/delete', [UserAdminController::class, 'delete'])->name('users/delete/');
 
 Route::get('/cms/reports', [ReportAdminController::class, 'index'])->name('reports');
-<<<<<<< HEAD
 Route::get('/cms/exportpdf', [ReportAdminController::class, 'exportpdf'])->name('exportpdf');
-=======
->>>>>>> 1f00d300c237900cb3a92d828f935b97a6a134ee

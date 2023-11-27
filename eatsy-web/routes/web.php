@@ -79,8 +79,4 @@ Route::post('/cms/users_process/{id}', [UserAdminController::class, 'user_proces
 Route::get('/cms/users/{id}/delete', [UserAdminController::class, 'delete'])->name('users/delete/');
 
 Route::get('/cms/reports', [ReportAdminController::class, 'index'])->name('reports');
-Route::get('/cms/reports/create', [ReportAdminController::class, 'create'])->name('create_reports');
-Route::post('/cms/reports/create_process', [ReportAdminController::class, 'create_process'])->name('create_reports_process');
-Route::get('/cms/reports/{id}', [ReportAdminController::class, 'detail'])->name('reports/');
-Route::post('/cms/reports_process/{id}', [ReportAdminController::class, 'report_process'])->name('reports_process/');
-Route::get('/cms/reports/{id}/delete', [ReportAdminController::class, 'delete'])->name('reports/delete/');
+Route::get('/cms/exportpdf', [ReportAdminController::class, 'exportpdf'])->name('exportpdf');

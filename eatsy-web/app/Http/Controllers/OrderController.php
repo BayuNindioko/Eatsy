@@ -73,10 +73,13 @@ class OrderController extends Controller
 
         $totalItemsSold = OrderItem::whereBetween('created_at', [$startDate, $endDate])->sum('quantity_order');
 
+        $monthName = Carbon::parse($month)->format('F Y');
+
         return [
             'salesData' => $salesData,
             'totalIncome' => $totalIncome,
             'totalItemsSold' => $totalItemsSold,
+            'month' => $monthName, // Menambahkan informasi nama bulan
         ];
     }
 }

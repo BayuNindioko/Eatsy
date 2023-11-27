@@ -56,7 +56,7 @@
 
                             <div class="info-box-content">
                                 <span class="info-box-text">User</span>
-                                <span class="info-box-number">{{ $dataUser }}</span>
+                                <span class="info-box-number">{{    $dataUser }}</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -72,11 +72,11 @@
                         </div>
                         <!-- /.info-box -->
                         <div class="info-box mb-3 bg-info">
-                            <span class="info-box-icon"><i class="far fa-comment"></i></span>
+                            <span class="info-box-icon"><i class="far fa-file"></i></span>
 
                             <div class="info-box-content">
                                 <span class="info-box-text">Laporan</span>
-                                <span class="info-box-number">{{ $dataCat }}</span>
+                                <span class="info-box-number">{{ $dataReport }}</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>

@@ -107,13 +107,18 @@ class UserAdminController extends Controller
 
             $responseUser = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/users');
             $dataUser = count($responseUser->json());
+
+            $responseReport = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/order/report');
+            $dataReport = $responseReport->json()['totalItemsSold'];
+
             return view(
                 'homecms/homepage',
                 [
                     'dataCat' => $dataCat,
                     'dataItem' => $dataItem,
                     'dataTab' => $dataTab,
-                    'dataUser' => $dataUser
+                    'dataUser' => $dataUser,
+                    'dataReport' => $dataReport
                 ]
             );
         }

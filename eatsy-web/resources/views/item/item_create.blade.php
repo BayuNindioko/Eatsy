@@ -144,7 +144,7 @@
                 success: function(response) {
 
                     console.log('Data berhasil dikirim:', response);
-                    window.location.href = 'cms/items';
+                    window.location.href = '{{ route("items") }}';
                 },
                 error: function(xhr, status, error) {
 

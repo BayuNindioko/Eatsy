@@ -56,30 +56,35 @@ class OrderController extends Controller
 
     function getSalesReport(Request $request)
     {
-        $month = $request->input('month');
-        $startDate = Carbon::parse($month)->startOfMonth();
-        $endDate = Carbon::parse($month)->endOfMonth();
+        $startDate = Carbon::parse($request->input('start_date'))->startOfDay();
+        $endDate = Carbon::parse($request->input('end_date'))->endOfDay();
+
         $salesData = OrderItem::select(
-            'item_id',
-            'name',
-            DB::raw('SUM(quantity_order) as total_quantity'),
-            DB::raw('SUM(price * quantity_order) as total_price')
-        )
+                'item_id',
+                'name',
+                DB::raw('SUM(quantity_order) as total_quantity'),
+                DB::raw('SUM(price * quantity_order) as total_price')
+            )
             ->whereBetween('created_at', [$startDate, $endDate])
             ->groupBy('item_id', 'name')
             ->get();
 
-        $totalIncome = OrderItem::whereBetween('created_at', [$startDate, $endDate])->sum(DB::raw('price * quantity_order'));
+        // Menghitung total pemasukkan dan total item terjual
+        $totalIncome = OrderItem::whereBetween('created_at', [$startDate, $endDate])
+                        ->sum(DB::raw('price * quantity_order'));
 
-        $totalItemsSold = OrderItem::whereBetween('created_at', [$startDate, $endDate])->sum('quantity_order');
+        $totalItemsSold = OrderItem::whereBetween('created_at', [$startDate, $endDate])
+                            ->sum('quantity_order');
 
-        $monthName = Carbon::parse($month)->format('F Y');
+        // Mendapatkan nama bulan dari nilai $month
+        $monthName = Carbon::parse($startDate)->format('F Y');
 
         return [
+            'startDate' => $startDate,
+            'endDate' => $endDate,
             'salesData' => $salesData,
             'totalIncome' => $totalIncome,
             'totalItemsSold' => $totalItemsSold,
-            'month' => $monthName, // Menambahkan informasi nama bulan
         ];
     }
 }

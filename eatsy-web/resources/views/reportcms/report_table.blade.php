@@ -1,3 +1,7 @@
+@php
+    use Carbon\Carbon;
+@endphp
+
 @extends('homecms/sidebar')
 
 @section('content')
@@ -34,7 +38,22 @@
                                 </a>
                             </div>
                             <div class="card-header">
-                                <h3 class="card-title">Laporan</h3>
+                                <form method="get" action="{{ route('reports') }}">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="start_date">Start Date:</label>
+                                            <input type="date" id="start_date" name="start_date" class="form-control"
+                                                value="{{ $startDate }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="end_date">End Date:</label>
+                                            <input type="date" id="end_date" name="end_date" class="form-control"
+                                                value="{{ $endDate }}">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Filter</button>
+                                </form>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -42,8 +61,8 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Bulan</th>
-                                            <th>Name</th>
+                                            <th>Tanggal</th>
+                                            <th>Nama Item</th>
                                             <th>Item Dipesan</th>
                                             <th>Harga Total</th>
                                         </tr>
@@ -52,10 +71,9 @@
                                         <?php $no = 1; ?>
                                         @foreach ($data['salesData'] as $report)
                                             <tr>
-                                                <td>
-                                                    <?php echo $no++; ?>
-                                                </td>
-                                                <td>{{ $data['month'] }}</td>
+                                                <td>{{ $no++ }}</td>
+                                                <td>{{ Carbon::parse($data['startDate'])->format('d-m-Y') }} Sampai
+                                                    {{ Carbon::parse($data['endDate'])->format('d-m-Y') }}</td>
                                                 <td>{{ $report['name'] }}</td>
                                                 <td>{{ $report['total_quantity'] }}</td>
                                                 <td>{{ $report['total_price'] }}</td>

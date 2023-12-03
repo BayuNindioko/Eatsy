@@ -2,39 +2,74 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
-
 
 class ReportAdminController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $token = session('bearer_token');
+
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/order/report');
+            $startDate = $request->input('start_date');
+            $endDate = $request->input('end_date');
+
+            // Validate and set default values for start and end dates if not provided
+            $startDate = $startDate ? Carbon::parse($startDate)->toDateString() : null;
+            $endDate = $endDate ? Carbon::parse($endDate)->toDateString() : null;
+
+            // Construct the API URL with the date parameters
+            $apiUrl = 'http://127.0.0.1/Eatsy/eatsy-web/public/api/order/report';
+            $queryParams = ['start_date' => $startDate, 'end_date' => $endDate];
+
+            // Remove null values from the query parameters
+            $queryParams = array_filter($queryParams, function ($value) {
+                return $value !== null;
+            });
+
+            // Make the HTTP request
+            $response = Http::get($apiUrl, $queryParams);
             $data = $response->json();
 
-            return view('reportcms.report_table', ['data' => $data]);
+            return view('reportcms.report_table', ['data' => $data, 'startDate' => $startDate, 'endDate' => $endDate]);
         }
     }
 
-    public function exportpdf()
+    public function exportpdf(Request $request)
     {
         $token = session('bearer_token');
+
         if (!$token) {
-        return redirect('');
+            return redirect('');
         } else {
-        $response = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/order/report');
-        $data = $response->json();
+            $startDate = $request->input('start_date');
+            $endDate = $request->input('end_date');
 
-        $pdf = PDF::loadView('exportpdf.exports', ['data' => $data]);
+            // Validate and set default values for start and end dates if not provided
+            $startDate = $startDate ? Carbon::parse($startDate)->toDateString() : null;
+            $endDate = $endDate ? Carbon::parse($endDate)->toDateString() : null;
 
-        return $pdf->download('exportpdf.pdf');
+            // Construct the API URL with the date parameters
+            $apiUrl = 'http://127.0.0.1/Eatsy/eatsy-web/public/api/order/report';
+            $queryParams = ['start_date' => $startDate, 'end_date' => $endDate];
+
+            // Remove null values from the query parameters
+            $queryParams = array_filter($queryParams, function ($value) {
+                return $value !== null;
+            });
+
+            // Make the HTTP request
+            $response = Http::get($apiUrl, $queryParams);
+            $data = $response->json();
+
+            $pdf = PDF::loadView('exportpdf.exports', ['data' => $data]);
+
+            return $pdf->download('exportpdf.pdf');
         }
     }
 }

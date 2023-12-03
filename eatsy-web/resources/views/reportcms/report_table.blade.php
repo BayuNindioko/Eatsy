@@ -31,8 +31,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="row justify-content-md-end pr-4 pt-4">
-                                <a href="{{ route('exportpdf') }}">
-
+                                <a href="{{ route('exportpdf', ['start_date' => $startDate, 'end_date' => $endDate]) }}">
                                     <button type="button" class="btn btn-primary btn-block"><i class="fa fa-plus"></i>
                                         Download PDF</button>
                                 </a>

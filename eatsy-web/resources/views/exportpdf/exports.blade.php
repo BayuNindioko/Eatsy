@@ -29,8 +29,8 @@
     <table>
         <tr>
             <th>No.</th>
-            <th>Bulan</th>
-            <th>Name</th>
+            <th>Tanggal</th>
+            <th>Nama Item</th>
             <th>Item Dipesan</th>
             <th>Harga Total</th>
         </tr>
@@ -41,7 +41,8 @@
             <td>
                 <?php echo $no++; ?>
             </td>
-            <td>{{ $data['month'] }}</td>
+            <td>{{ Carbon::parse($data['startDate'])->format('d-m-Y') }} Sampai
+                {{ Carbon::parse($data['endDate'])->format('d-m-Y') }}</td>
             <td>{{ $report['name'] }}</td>
             <td>{{ $report['total_quantity'] }}</td>
             <td>{{ $report['total_price'] }}</td>

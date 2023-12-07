@@ -28,7 +28,7 @@
 
 <body>
 
-    <h2>Laporan</h2>
+    <h2>Laporan Penjualan per Item</h2>
 
     <table>
         <tr>

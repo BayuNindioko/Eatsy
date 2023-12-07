@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Tabel Table</h1>
+                    <h1>Tabel Meja</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -56,16 +56,31 @@
                                         <td>{{ $table['number'] }}</td>
                                         <td>{{ $table['status'] }}</td>
                                         <td>
-                                            <a class="btn btn-info btn-sm" href="{{ route('tables/', $table['id']) }}">
-                                                <i class="fas fa-pencil-alt"></i>
-                                                Edit
-                                            </a>
-                                            <a class="btn btn-danger btn-sm"
-                                                href="{{ route('tables/delete/', $table['id']) }}"
-                                                onclick="return confirm('Yakin ingin menghapus artikel ini?')">
-                                                <i class="fas fa-trash"></i>
-                                                Delete
-                                            </a>
+                                            <?php
+                                                if($table['status'] == 'Kosong'){
+                                            ?>
+                                                <a class="btn btn-info btn-sm" href="{{ route('tables/', $table['id']) }}">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                    Edit
+                                                </a>
+                                                <a class="btn btn-danger btn-sm"
+                                                    href="{{ route('tables/delete/', $table['id']) }}"
+                                                    onclick="return confirm('Yakin ingin menghapus artikel ini?')">
+                                                    <i class="fas fa-trash"></i>
+                                                    Delete
+                                                </a>
+                                            <?php }else{ ?>
+                                                <a class="btn btn-info btn-sm disabled" href="{{ route('tables/', $table['id']) }}">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                    Edit
+                                                </a>
+                                                <a class="btn btn-danger btn-sm disabled"
+                                                    href="{{ route('tables/delete/', $table['id']) }}"
+                                                    onclick="return confirm('Yakin ingin menghapus artikel ini?')">
+                                                    <i class="fas fa-trash"></i>
+                                                    Delete
+                                                </a>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                     @endforeach

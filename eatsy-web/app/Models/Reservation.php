@@ -13,6 +13,15 @@ class Reservation extends Model
         'table_id', 'name', 'pin', 'status'
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($reservation) {
+            $reservation->table()->detach();
+        });
+    }
+
     public function table()
     {
         return $this->belongsTo(Table::class);

@@ -13,7 +13,7 @@ class TableAdminController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/tables');
+            $response = Http::get('https://lamaisonetc.my.id/api/tables');
             $data = $response->json();
 
             return view('table.table_table', ['data' => $data]);
@@ -32,7 +32,7 @@ class TableAdminController extends Controller
 
     public function create_process(Request $request)
     {
-        $response = Http::post('http://127.0.0.1/Eatsy/eatsy-web/public/api/tables', $request->all());
+        $response = Http::post('https://lamaisonetc.my.id/api/tables', $request->all());
         $data = $response->json();
 
         if ($response->successful()) {
@@ -48,7 +48,7 @@ class TableAdminController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/tables/' . $id . '/detail');
+            $response = Http::get('https://lamaisonetc.my.id/api/tables/' . $id . '/detail');
             $data = $response->json();
             return view('table.table_detail', ['data' => $data]);
         }
@@ -56,7 +56,7 @@ class TableAdminController extends Controller
 
     public function table_process($id, Request $request)
     {
-        $endpoint = 'http://127.0.0.1/Eatsy/eatsy-web/public/api/tables/' . $id;
+        $endpoint = 'https://lamaisonetc.my.id/api/tables/' . $id;
 
         $data = [
             'number' => $request->input('number'),
@@ -78,7 +78,7 @@ class TableAdminController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::delete('http://127.0.0.1/Eatsy/eatsy-web/public/api/tables/' . $id);
+            $response = Http::delete('https://lamaisonetc.my.id/api/tables/' . $id);
 
             if ($response->successful()) {
                 return redirect()->route('tables')->with('success', 'Data meja berhasil diperbarui.');

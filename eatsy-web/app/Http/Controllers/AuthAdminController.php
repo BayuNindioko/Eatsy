@@ -24,7 +24,7 @@ class AuthAdminController extends Controller
             'password'  => 'required',
         ]);
 
-        $response = Http::post('http://127.0.0.1/Eatsy/eatsy-web/public/api/users/login', $request->all());
+        $response = Http::post('https://lamaisonetc.my.id/api/users/login', $request->all());
 
         session(['bearer_token' => $response['data']['access_token']]);
 
@@ -41,7 +41,7 @@ class AuthAdminController extends Controller
 
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $token,
-        ])->get('http://127.0.0.1/Eatsy/eatsy-web/public/api/users/logout');
+        ])->get('https://lamaisonetc.my.id/api/users/logout');
         session()->forget('bearer_token');
 
         return redirect('cms');

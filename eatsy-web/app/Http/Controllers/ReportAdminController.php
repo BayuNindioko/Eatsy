@@ -24,7 +24,7 @@ class ReportAdminController extends Controller
             $endDate = $endDate ? Carbon::parse($endDate)->toDateString() : null;
 
             // Construct the API URL with the date parameters
-            $apiUrl = 'http://127.0.0.1/Eatsy/eatsy-web/public/api/order/report';
+            $apiUrl = 'https://lamaisonetc.my.id/api/order/report';
             $queryParams = ['start_date' => $startDate, 'end_date' => $endDate];
 
             // Remove null values from the query parameters
@@ -55,7 +55,7 @@ class ReportAdminController extends Controller
             $endDate = $endDate ? Carbon::parse($endDate)->toDateString() : null;
 
             // Construct the API URL with the date parameters
-            $apiUrl = 'http://127.0.0.1/Eatsy/eatsy-web/public/api/order/report';
+            $apiUrl = 'https://lamaisonetc.my.id/api/order/report';
             $queryParams = ['start_date' => $startDate, 'end_date' => $endDate];
 
             // Remove null values from the query parameters

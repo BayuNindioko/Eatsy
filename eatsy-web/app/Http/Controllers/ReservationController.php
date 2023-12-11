@@ -10,7 +10,7 @@ class ReservationController extends Controller
 {
     public function index()
     {
-        $reservations = Reservation::where('status', 'Process')->with('table')->get();
+        $reservations = Reservation::where('status', 'Process')->whereNotNull('table_id')->with('table')->get();
         return response()->json($reservations);
     }
 

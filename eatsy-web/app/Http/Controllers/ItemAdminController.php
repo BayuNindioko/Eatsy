@@ -13,7 +13,7 @@ class ItemAdminController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/items');
+            $response = Http::get('https://lamaisonetc.my.id/api/items');
             $data = $response->json();
 
             return view('item.item_table', ['data' => $data]);
@@ -26,7 +26,7 @@ class ItemAdminController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/categories');
+            $response = Http::get('https://lamaisonetc.my.id/api/categories');
             $data = $response->json();
             return view('item.item_create', ['data' => $data]);
         }
@@ -35,7 +35,7 @@ class ItemAdminController extends Controller
     public function create_process(Request $request)
     {
         $request['file'] = $request->file('file');
-        $response = Http::post('http://127.0.0.1/Eatsy/eatsy-web/public/api/items', $request->all());
+        $response = Http::post('https://lamaisonetc.my.id/api/items', $request->all());
         $data = $response->json();
 
         return $request;
@@ -47,9 +47,9 @@ class ItemAdminController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/items/' . $id);
+            $response = Http::get('https://lamaisonetc.my.id/api/items/' . $id);
             $data = $response->json();
-            $responseCat = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/categories/');
+            $responseCat = Http::get('https://lamaisonetc.my.id/api/categories/');
             $dataCat = $responseCat->json();
             return view('item.item_detail', ['data' => $data, 'dataCat' => $dataCat]);
         }
@@ -57,7 +57,7 @@ class ItemAdminController extends Controller
 
     public function item_process($id, Request $request)
     {
-        $endpoint = 'http://127.0.0.1/Eatsy/eatsy-web/public/api/items/' . $id;
+        $endpoint = 'https://lamaisonetc.my.id/api/items/' . $id;
 
         $response = Http::patch($endpoint, $request);
 
@@ -74,7 +74,7 @@ class ItemAdminController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::delete('http://127.0.0.1/Eatsy/eatsy-web/public/api/items/' . $id);
+            $response = Http::delete('https://lamaisonetc.my.id/api/items/' . $id);
 
             if ($response->successful()) {
                 return redirect()->route('items')->with('success', 'Data meja berhasil diperbarui.');

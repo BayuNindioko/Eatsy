@@ -9,7 +9,7 @@ class CartController extends Controller
 {
     public function index($id)
     {
-        $responseTable = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/tables/' . $id . '/reservations');
+        $responseTable = Http::get('https://lamaisonetc.my.id/api/tables/' . $id . '/reservations');
         $dataTable = $responseTable->json();
         return view('cartpage.cartpage', ['dataTable' => $dataTable]);
     }

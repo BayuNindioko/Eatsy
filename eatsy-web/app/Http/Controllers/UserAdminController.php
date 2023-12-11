@@ -11,7 +11,7 @@ class UserAdminController extends Controller
     {
         $token = session('bearer_token');
 
-        $response = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/users');
+        $response = Http::get('https://lamaisonetc.my.id/api/users');
         $data = $response->json();
 
         if (!$token) {
@@ -33,7 +33,7 @@ class UserAdminController extends Controller
 
     public function create_process(Request $request)
     {
-        $response = Http::post('http://127.0.0.1/Eatsy/eatsy-web/public/api/users', $request->all());
+        $response = Http::post('https://lamaisonetc.my.id/api/users', $request->all());
         $data = $response->json();
 
         if ($response->successful()) {
@@ -49,7 +49,7 @@ class UserAdminController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/users/' . $id);
+            $response = Http::get('https://lamaisonetc.my.id/api/users/' . $id);
             $data = $response->json();
             return view('user.user_detail', ['data' => $data]);
         }
@@ -57,7 +57,7 @@ class UserAdminController extends Controller
 
     public function user_process($id, Request $request)
     {
-        $endpoint = 'http://127.0.0.1/Eatsy/eatsy-web/public/api/users/' . $id;
+        $endpoint = 'https://lamaisonetc.my.id/api/users/' . $id;
 
         $data = [
             'name' => $request->input('name'),
@@ -80,7 +80,7 @@ class UserAdminController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::delete('http://127.0.0.1/Eatsy/eatsy-web/public/api/users/' . $id);
+            $response = Http::delete('https://lamaisonetc.my.id/api/users/' . $id);
 
             if ($response->successful()) {
                 return redirect()->route('users')->with('success', 'Data user berhasil diperbarui.');
@@ -96,19 +96,19 @@ class UserAdminController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $responseCat = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/categories');
+            $responseCat = Http::get('https://lamaisonetc.my.id/api/categories');
             $dataCat = count($responseCat->json());
 
-            $responseItem = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/items');
+            $responseItem = Http::get('https://lamaisonetc.my.id/api/items');
             $dataItem = count($responseItem->json());
 
-            $responseTab = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/tables');
+            $responseTab = Http::get('https://lamaisonetc.my.id/api/tables');
             $dataTab = count($responseTab->json());
 
-            $responseUser = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/users');
+            $responseUser = Http::get('https://lamaisonetc.my.id/api/users');
             $dataUser = count($responseUser->json());
 
-            $responseReport = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/order/report');
+            $responseReport = Http::get('https://lamaisonetc.my.id/api/order/report');
             $dataReport = $responseReport->json()['totalItemsSold'];
 
             return view(

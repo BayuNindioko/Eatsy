@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reservation;
 use App\Models\Table;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,11 @@ class TableController extends Controller
 
     public function delete($id)
     {
-        $table = Table::findOrFail($id)->delete();
+        $table = Table::findOrFail($id);
+    
+        Reservation::where('table_id', $table->id)->update(['table_id' => null]);
+
+        $table->delete();
 
         return response()->json($table);
     }

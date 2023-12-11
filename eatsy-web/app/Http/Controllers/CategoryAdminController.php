@@ -13,7 +13,7 @@ class CategoryAdminController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/categories');
+            $response = Http::get('https://lamaisonetc.my.id/api/categories');
             $data = $response->json();
 
             return view('category.category_table', ['data' => $data]);
@@ -32,7 +32,7 @@ class CategoryAdminController extends Controller
 
     public function create_process(Request $request)
     {
-        $response = Http::post('http://127.0.0.1/Eatsy/eatsy-web/public/api/categories', $request->all());
+        $response = Http::post('https://lamaisonetc.my.id/api/categories', $request->all());
         $data = $response->json();
 
         if ($response->successful()) {
@@ -48,7 +48,7 @@ class CategoryAdminController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/categories/' . $id);
+            $response = Http::get('https://lamaisonetc.my.id/api/categories/' . $id);
             $data = $response->json();
             return view('category.category_detail', ['data' => $data]);
         }
@@ -56,7 +56,7 @@ class CategoryAdminController extends Controller
 
     public function category_process($id, Request $request)
     {
-        $endpoint = 'http://127.0.0.1/Eatsy/eatsy-web/public/api/categories/' . $id;
+        $endpoint = 'https://lamaisonetc.my.id/api/categories/' . $id;
 
         $data = [
             'name' => $request->input('name')
@@ -77,7 +77,7 @@ class CategoryAdminController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::delete('http://127.0.0.1/Eatsy/eatsy-web/public/api/categories/' . $id);
+            $response = Http::delete('https://lamaisonetc.my.id/api/categories/' . $id);
 
             if ($response->successful()) {
                 return redirect()->route('categories')->with('success', 'Data category berhasil diperbarui.');

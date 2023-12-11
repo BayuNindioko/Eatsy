@@ -17,13 +17,13 @@ class HomeController extends Controller
             return redirect()->route('register/', ['id' => $id])->with('error', 'You are not authorized to access this table.');
         }
 
-        $response = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/items');
+        $response = Http::get('https://lamaisonetc.my.id/api/items');
         $data = $response->json();
 
-        $responseCategory = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/categories');
+        $responseCategory = Http::get('https://lamaisonetc.my.id/api/categories');
         $dataCategory = $responseCategory->json();
 
-        $responseTable = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/tables/' . $id . '/reservations');
+        $responseTable = Http::get('https://lamaisonetc.my.id/api/tables/' . $id . '/reservations');
         $dataTable = $responseTable->json();
 
         return view('homepage.homepage', [
@@ -35,12 +35,12 @@ class HomeController extends Controller
 
     public function do_tambah_cart($id, Request $request)
     {
-        $response = Http::get("http://127.0.0.1/Eatsy/eatsy-web/public/api/items/{$id}");
+        $response = Http::get("https://lamaisonetc.my.id/api/items/{$id}");
         $item = $response->json();
 
         $table_id = $request->input('table_id');
 
-        $responseTable = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/tables/' . $table_id . '/reservations');
+        $responseTable = Http::get('https://lamaisonetc.my.id/api/tables/' . $table_id . '/reservations');
         $dataTable = $responseTable->json();
 
         if (!$item) {
@@ -93,7 +93,7 @@ class HomeController extends Controller
     public function submitOrder(Request $request)
     {
         $tableIdInSession = Session::get('table_id');
-        $responseTable = Http::get('http://127.0.0.1/Eatsy/eatsy-web/public/api/tables/' . $tableIdInSession . '/reservations');
+        $responseTable = Http::get('https://lamaisonetc.my.id/api/tables/' . $tableIdInSession . '/reservations');
         $dataTable = $responseTable->json();
 
         $reservationSession = $dataTable['id'];
@@ -115,7 +115,7 @@ class HomeController extends Controller
             ];
         }
 
-        $response = Http::post('http://127.0.0.1/Eatsy/eatsy-web/public/api/order/store', $orderData);
+        $response = Http::post('https://lamaisonetc.my.id/api/order/store', $orderData);
 
         if ($response->successful()) {
             Session::forget('cartItems');

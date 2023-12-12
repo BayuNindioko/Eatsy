@@ -9,6 +9,11 @@
 @endsection
 
 @section('content')
+@if(empty($dataTable['name']))
+@php
+return abort(403,'Anda tidak memiliki akses');
+@endphp
+@else
 <section id=topSection>
     {{-- Welcome --}}
     <div class="container">
@@ -43,13 +48,11 @@
                             <img src="../assets/img/banner/burger.jpg" class="d-block w-100" alt="...">
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-                        data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-                        data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -62,8 +65,7 @@
                 <div class="col-md-6">
                     <div class="form">
                         <i class="fa fa-search"></i>
-                        <input id="myInput" onkeyup="search()" type="text" class="form-control form-input"
-                            placeholder="Search">
+                        <input id="myInput" onkeyup="search()" type="text" class="form-control form-input" placeholder="Search">
                     </div>
                 </div>
             </div>
@@ -74,21 +76,17 @@
 {{-- Button Group / Filter --}}
 <ul class="nav nav-pills mb-3 horizontal-scroll flex-nowrap overflow-auto" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="pills-semua-tab" data-bs-toggle="pill" data-bs-target="#pills-semua"
-            type="button" role="tab" aria-controls="pills-semua" aria-selected="true">Semua</button>
+        <button class="nav-link active" id="pills-semua-tab" data-bs-toggle="pill" data-bs-target="#pills-semua" type="button" role="tab" aria-controls="pills-semua" aria-selected="true">Semua</button>
     </li>
     @foreach ($dataCategory as $cat)
     <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-{{ strtolower($cat['name']) }}-tab" data-bs-toggle="pill"
-            data-bs-target="#pills-{{ strtolower($cat['name']) }}" type="button" role="tab"
-            aria-controls="pills-{{ strtolower($cat['name']) }}" aria-selected="false">{{ $cat['name'] }}</button>
+        <button class="nav-link" id="pills-{{ strtolower($cat['name']) }}-tab" data-bs-toggle="pill" data-bs-target="#pills-{{ strtolower($cat['name']) }}" type="button" role="tab" aria-controls="pills-{{ strtolower($cat['name']) }}" aria-selected="false">{{ $cat['name'] }}</button>
     </li>
     @endforeach
 </ul>
 
 <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-semua" role="tabpanel" aria-labelledby="pills-semua-tab"
-        tabindex="0">
+    <div class="tab-pane fade show active" id="pills-semua" role="tabpanel" aria-labelledby="pills-semua-tab" tabindex="0">
         {{-- Cardview for all items --}}
         <div class="card-container">
             @foreach ($data as $item)
@@ -99,8 +97,7 @@
                     <h6 class="card-subtitle mb-2 text-body-secondary">{{ $item['deskripsi'] }}</h6>
                     <h5 class="card-text">@formatPrice($item['price'])</h5>
                     <div style="display: flex; justify-content: center;">
-                        <form id="addButtonForm" action="{{ route('detailpage') }}" method="post"
-                            style="display: inline;">
+                        <form id="addButtonForm" action="{{ route('detailpage') }}" method="post" style="display: inline;">
                             @csrf
                             <input type="hidden" name="id" value="{{ $item['id'] }}">
                             <input type="hidden" name="table_id" value="{{ $dataTable['table_id'] }}">
@@ -114,8 +111,7 @@
     </div>
 
     @foreach ($dataCategory as $cat)
-    <div class="tab-pane fade" id="pills-{{ strtolower($cat['name']) }}" role="tabpanel"
-        aria-labelledby="pills-{{ strtolower($cat['name']) }}-tab" tabindex="0">
+    <div class="tab-pane fade" id="pills-{{ strtolower($cat['name']) }}" role="tabpanel" aria-labelledby="pills-{{ strtolower($cat['name']) }}-tab" tabindex="0">
         {{-- Cardview for items in the category --}}
         <div class="card-container">
             @foreach ($data as $item)
@@ -126,11 +122,11 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $item['name'] }}</h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary">
-                        {{ $item['deskripsi'] }}</h6>
+                        {{ $item['deskripsi'] }}
+                    </h6>
                     <h5 class="card-text">@formatPrice($item['price'])</h5>
                     <div style="display: flex; justify-content: center;">
-                        <form id="addButtonForm" action="{{ route('detailpage') }}" method="post"
-                            style="display: inline;">
+                        <form id="addButtonForm" action="{{ route('detailpage') }}" method="post" style="display: inline;">
                             @csrf
                             <input type="hidden" name="id" value="{{ $item['id'] }}">
                             <input type="hidden" name="table_id" value="{{ $dataTable['table_id'] }}">
@@ -165,6 +161,8 @@
     </i>
     @endif
 </a>
+@endif
+
 @endsection
 
 <script>

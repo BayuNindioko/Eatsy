@@ -25,6 +25,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
 Route::get('/register/{id}', [AuthController::class, 'index'])->name('register/');
 Route::post('/register/process/{id}', [AuthController::class, 'process'])->name('register-process/');
 Route::get('/register/welcome', [AuthController::class, 'welcome_pin'])->name('register-welcome');

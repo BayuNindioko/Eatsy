@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class ReportAdminController extends Controller
 {
@@ -67,9 +69,18 @@ class ReportAdminController extends Controller
             $response = Http::get($apiUrl, $queryParams);
             $data = $response->json();
 
-            $pdf = PDF::loadView('exportpdf.exports', ['data' => $data]);
+            $pdfOptions = new Options();
+            $pdfOptions->set('defaultFont', 'Arial');
 
-            return $pdf->download('exportpdf.pdf');
+            $dompdf = new Dompdf($pdfOptions);
+            $view = view('exportpdf.exports', ['data' => $data]);
+            $dompdf->loadHtml($view->render());
+
+            // Render the PDF
+            $dompdf->render();
+
+            // Output the generated PDF (force download)
+            return $dompdf->stream('exportpdf.pdf');
         }
     }
 }

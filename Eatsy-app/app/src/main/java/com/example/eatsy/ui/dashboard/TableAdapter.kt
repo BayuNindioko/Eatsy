@@ -29,6 +29,11 @@ class TableAdapter(private var tableList: List<TableReservationResponse?>) :
         return tableList.size
     }
 
+    fun setData(newTableList: List<TableReservationResponse?>) {
+        tableList = newTableList
+        notifyDataSetChanged()
+    }
+
     inner class TableViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val numberTextView: TextView = itemView.findViewById(R.id.item_tv_minutes)
         private val nameTextView: TextView = itemView.findViewById(R.id.nama)
@@ -39,7 +44,7 @@ class TableAdapter(private var tableList: List<TableReservationResponse?>) :
                     val table = tableList[position]
                     table?.let {
                         val id = it.id
-                        val number_table = it.table.number
+                        val number_table = it.table?.number ?: ""
 
                         val intent = Intent(itemView.context, PesananActivity::class.java)
                         intent.putExtra("NUMBER_KEY", id.toString())
@@ -51,8 +56,12 @@ class TableAdapter(private var tableList: List<TableReservationResponse?>) :
         }
         fun bind(table: TableReservationResponse?) {
             table?.let {
-                numberTextView.text = it.table.number
-                nameTextView.text = it.name
+                if (it.table != null) {
+                    numberTextView.text = it.table.number ?: ""
+                    nameTextView.text = it.name
+                } else {
+                    // Handle null table case if needed
+                }
             }
         }
     }

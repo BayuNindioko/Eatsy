@@ -22,8 +22,9 @@ class QueueViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     val tableList = response.body()
 
-                    tableList?.forEach { tableReservation ->
-                        val tableList = response.body()
+                    if (tableList.isNullOrEmpty()) {
+                        tableData.postValue(emptyList())
+                    } else {
                         tableData.postValue(tableList)
                     }
                 }

@@ -63,7 +63,7 @@ interface ApiService {
     ): Call<OrderResponse>
 
     @FormUrlEncoded
-    @PATCH("order_items/{id}/")
+    @PATCH("order_items/{id}")
     fun updateData(
         @Path("id") id: Int,
         @Field("quantity_delivered") QuantityDelivered:Int

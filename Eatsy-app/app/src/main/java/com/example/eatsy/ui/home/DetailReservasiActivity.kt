@@ -30,9 +30,6 @@ import java.text.SimpleDateFormat
 class DetailReservasiActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailReservasiBinding
-    private lateinit var bluetoothAdapter: BluetoothAdapter
-    private lateinit var mmSocket: BluetoothSocket
-    private lateinit var mmOutputStream: OutputStream
 
     private var tableId: Int = 0
     private var reservationId: Int = 0
@@ -94,7 +91,7 @@ class DetailReservasiActivity : AppCompatActivity() {
                     else{
                         Log.d("bayu", "$response.code")
                         Toast.makeText(this@DetailReservasiActivity, "Gagal memuat data. Silakan coba lagi.", Toast.LENGTH_SHORT).show()
-
+                        binding.progressBar2.visibility = View.GONE
                     }
                 }
 

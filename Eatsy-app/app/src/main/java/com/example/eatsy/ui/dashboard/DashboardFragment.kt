@@ -36,7 +36,7 @@ class DashboardFragment : Fragment() {
 
         queueViewModel = ViewModelProvider(this).get(QueueViewModel::class.java)
         queueViewModel.getTableData().observe(viewLifecycleOwner) { tableList ->
-            if (tableList.isNotEmpty()) {
+            if (tableList != null && tableList.isNotEmpty()) {
                 binding.rvTable.visibility = View.VISIBLE
                 binding.emptyView.visibility = View.GONE
 

@@ -129,7 +129,7 @@
             event.preventDefault();
 
             var form = $(this);
-            var url = 'http://127.0.0.1/Eatsy/eatsy-web/public/api/items';
+            var url = 'https://lamaisonetc.my.id/api/items';
 
 
             var formData = new FormData(form[0]);
